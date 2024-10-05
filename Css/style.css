@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --text-color: white;
+    --bg-url: url(../Imgs/bg-desktop.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(255, 255, 255, 0.01);
+    --highlight-color: rgb(255, 255, 255);
+    --mode-image: url(../Imgs/moon-stars.svg);
+}
+.light {
+    --text-color: black;
+    --bg-url: url(../Imgs/bg-desktop-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.03);
+    --surface-color-hover: rgba(0, 0, 0, 0.01);
+    --highlight-color: rgb(0, 0, 0);
+    --mode-image: url(../Imgs/sun.svg);
+}
+
+body {
+    margin: auto;
+    height: 100vh;
+    background: var(--bg-url) no-repeat top center;
+}
+body * {
+
+    font-family: "inter", sans-serif;
+    color: var(--text-color);
+}
+#container {
+    width: 360px;
+    margin: auto;
+    margin-top: 5px;
+    padding: 0 24px;
+}
+#profile {
+    padding: 24px;
+    text-align: center;
+}
+#profile img {
+    width: 112px;
+    border-radius: 50%;
+    border: 2px solid gray;
+    transition: background 0.2s;
+}
+@keyframes scale{
+    0%{
+
+    }
+    50%{
+        scale: 1.2;
+        rotate: -0.2turn;
+
+    }
+    100%{
+
+    }
+}
+#profile img:hover {
+    animation: scale 1.5s;
+}
+
+#profile p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 8px;
+}
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0 24px 0;
+}
+ul li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+
+}
+ul li a:hover {
+    border: 1.5px solid var(--text-color);
+    background: var(--surface-color-hover);
+    filter: drop-shadow( 0 0 20px var(--highlight-color));
+}
+.social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    gap: 32px;
+    font-size: 24px;
+    transition: background 0.2s;
+}
+.social a:hover {
+    filter: drop-shadow( 0 0 15px var(--highlight-color));
+    
+} 
+.foot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+.mode {
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+.mode button {
+    height: 32px;
+    width: 32px;
+    background:white var(--mode-image) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+    animation: slide-out 0.5s forwards;
+}
+.mode button:hover {
+    filter: drop-shadow( 0 0 15px var(--highlight-color));
+}
+.light .mode button {
+   animation: slide-in 0.5s forwards;
+}
+.mode span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+
+}
+
+@keyframes slide-in{
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+@keyframes slide-out{
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
+}
